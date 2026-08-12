@@ -22,3 +22,36 @@ To select multiple columns:
 
 SELECT column1, column2
 FROM table_name;
+
+What is DISTINCT?
+DISTINCT is used to return only unique combinations of the selected columns, removing duplicates.
+
+SELECT DISTINCT genre
+FROM movies;
+
+What is COUNT()?
+COUNT() is used to count the number of records that match the query.
+
+SELECT COUNT (*)
+FROM movies;
+
+What is AVG()?
+AVG() is used to calculate the average value of a numeric column.
+
+SELECT AVG(rating)
+FROM movies;
+
+What is MIN()?
+MIN() is used to return the lowest value of a given column.
+
+SELECT MIN(rating)
+FROM movies;
+
+What is MAX()?
+MAX() is used to return the highest value of a given column.
+
+SELECT MAX(rating)
+FROM movies;
+
+Important:
+Aggregate functions such as COUNT(), AVG(), MIN(), and MAX() return a value calculated from multiple records rather than returning the records themselves.
