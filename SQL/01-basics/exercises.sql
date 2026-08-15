@@ -126,3 +126,74 @@ FROM movies;
 SELECT AVG(rating)
 FROM movies
 WHERE genre = 'Sci-Fi';
+
+-- GROUP BY
+
+SELECT genre, count(title)
+FROM movies
+GROUP BY genre;
+
+SELECT genre, AVG(rating)
+FROM movies
+GROUP BY genre;
+
+SELECT genre, MAX(rating)
+FROM movies
+GROUP BY genre;
+
+-- HAVING
+
+SELECT genre, COUNT(*)
+FROM movies
+GROUP BY genre
+HAVING COUNT(*) > 2;
+
+SELECT genre, COUNT(*)
+FROM movies
+WHERE rating >= 8
+GROUP BY genre
+HAVING COUNT(*) >= 2;
+
+SELECT year, AVG(rating)
+FROM movies
+GROUP BY year
+HAVING COUNT(*) >= 2;
+
+--  LIKE
+
+SELECT title
+FROM movies
+WHERE title LIKE 'The%';
+
+SELECT title
+FROM movies
+WHERE title LIKE '%2';
+
+SELECT title
+FROM movies
+WHERE title LIKE '%The%';
+
+-- IN
+
+SELECT title
+FROM movies
+WHERE genre IN ('Action', 'Sci-Fi') AND rating >= 8.5;
+
+-- BETWEEN
+
+SELECT title
+FROM movies
+WHERE rating BETWEEN 8.0 AND 9.0;
+
+SELECT *
+FROM movies
+WHERE genre IN ('Action', 'Sci-Fi') AND rating BETWEEN 8.0 AND 9.2
+ORDER BY rating DESC
+LIMIT 3;
+
+SELECT genre, COUNT(*)
+FROM movies
+WHERE rating >= 8
+GROUP BY genre
+HAVING COUNT(*) >= 2
+ORDER BY COUNT(*) DESC;
