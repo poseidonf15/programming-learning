@@ -21,3 +21,17 @@ WHERE year > 2010;
 -- Average rating of all movies
 SELECT AVG(rating)
 FROM movies;
+
+-- Search movies by genre
+SELECT *
+FROM movies
+WHERE genre LIKE ?;
+
+-- Search movies by title
+SELECT *
+FROM movies
+WHERE genre LIKE ?
+
+-- Add movie
+INSERT INTO movies (title, year, genre, rating)
+VALUES (?, ?, ?, ?);

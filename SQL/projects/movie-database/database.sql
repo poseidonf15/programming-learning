@@ -7,7 +7,7 @@ CREATE TABLE movies (
 );
 
 INSERT INTO movies (title, year, genre, rating)
-VALUES 
+VALUES
   ('The Dark Knight', 2008, 'Action', 9.1),
   ('Interstellar', 2014, 'Sci-Fi', 8.7),
   ('The Godfather', 1972, 'Crime', 9.2),
