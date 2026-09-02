@@ -197,3 +197,22 @@ WHERE rating >= 8
 GROUP BY genre
 HAVING COUNT(*) >= 2
 ORDER BY COUNT(*) DESC;
+
+-- JOIN
+
+SELECT movies.title , genres.name
+FROM movies 
+JOIN genres
+ON genres.id = movies.genre_id;
+
+SELECT movies.title , genres.name, movies.rating
+FROM movies 
+LEFT JOIN genres
+ON genres.id = movies.genre_id;
+
+SELECT genres.name, COUNT(*), AVG(movies.rating)
+FROM genres
+JOIN movies
+ON genres.id = movies.genre_id
+GROUP BY genres.name
+HAVING COUNT(*) >= 2;

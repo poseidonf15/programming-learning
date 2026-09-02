@@ -118,3 +118,68 @@ BETWEEN is used to check whether a value is within a specified range. It is equi
     SELECT title
     FROM movies
     WHERE rating BETWEEN 8.0 AND 9.0;
+
+What is JOIN?
+JOIN is used to combine rows from two or more tables using a related column between them.
+
+movies
+id | title           | genre_id
+1  | The Dark Knight | 1
+2  | Interstellar    | 2
+3  | The Godfather   | 3
+
+genres
+id | name
+1  | Action
+2  | Sci-Fi
+3  | Crime
+
+
+What is INNER JOIN?
+JOIN (without specifying a type) is an INNER JOIN.
+
+It returns only rows that have a matching value in both tables.
+
+What is ON?
+ON defines the condition used to determine which rows from the tables should be connected.
+
+    SELECT movies.title, genres.name
+    FROM movies
+    JOIN genres
+    ON genres.id = movies.genre_id;
+
+What is LEFT JOIN?
+LEFT JOIN returns ALL rows from the table on the left,
+and matching rows from the table on the right.
+
+If there is no matching row on the right,
+the columns from the right table contain NULL.
+
+    SELECT movies.title, genres.name
+    FROM movies
+    LEFT JOIN genres
+    ON genres.id = movies.genre_id;
+
+INNER JOIN vs LEFT JOIN:
+
+INNER JOIN:
+Only matching rows are returned.
+
+LEFT JOIN:
+All rows from the left table are returned,
+even if there is no match in the right table.
+
+What is RIGHT JOIN?
+RIGHT JOIN is basically the opposite of LEFT JOIN.
+
+It preserves all rows from the table on the right.
+
+    FROM movies
+    RIGHT JOIN genres
+    ON genres.id = movies.genre_id;
+
+is equivalent to:
+
+    FROM genres
+    LEFT JOIN movies
+    ON genres.id = movies.genre_id;
